@@ -3,4 +3,11 @@
 
 void menu();
 
+//Struct for commands
+//  > Each command has a function
+typedef struct{
+    char *command;
+    void (*handler)();
+}Command;
+
 #endif
