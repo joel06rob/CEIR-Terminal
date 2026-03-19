@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "menu.h"
+#include "engine.h"
 
 void sayHelloTest();
 void exit_program();
@@ -8,7 +9,7 @@ void help_commands();
 
 //Setup commands
 static Command commands[] = {
-    {"idle", sayHelloTest},
+    {"idle", run_idle},
     {"stress", sayHelloTest},
     {"rpm", sayHelloTest},
     {"temp", sayHelloTest},
