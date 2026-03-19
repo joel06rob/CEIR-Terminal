@@ -10,7 +10,8 @@ void help_commands();
 //Setup commands
 static Command commands[] = {
     {"idle", run_idle},
-    {"stress", sayHelloTest},
+    {"cruise", run_cruise},
+    {"stress", run_stress},
     {"rpm", sayHelloTest},
     {"temp", sayHelloTest},
     {"help", help_commands},
