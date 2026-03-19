@@ -7,7 +7,7 @@ void exit_program();
 void help_commands();
 
 //Setup commands
-Command commands[] = {
+static Command commands[] = {
     {"idle", sayHelloTest},
     {"stress", sayHelloTest},
     {"rpm", sayHelloTest},
