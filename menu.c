@@ -12,8 +12,6 @@ static Command commands[] = {
     {"idle", run_idle},
     {"cruise", run_cruise},
     {"stress", run_stress},
-    {"rpm", sayHelloTest},
-    {"temp", sayHelloTest},
     {"help", help_commands},
     {"exit", exit_program}
 }; 

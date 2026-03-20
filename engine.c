@@ -3,26 +3,43 @@
 #include <time.h>
 #include "engine.h"
 
+static int random_Data(int min, int max);
+static void print_data(int time, EngineData *data);
+static void log_data();
+
 void run_idle(){
     printf("\nSTARTING IDLE TEST...\n");
 
+    EngineData data;
+
+    printf("TIME   RPM   TEMP   OIL\n------------------------\n");
+
     for(int i = 0; i < 10; i++){
-        printf("%d\n", random_RPM(700,800));
+        data.rpm = random_Data(700,800);
+        data.temp = random_Data(75, 90);
+        data.oil = random_Data(30, 40);
+
+        print_data(i, &data);
     }
     
     //TODO: Include an array to store results + On report generation write results into a log file.
 
-    //Get random values (But more stable)
-    //After Test: User input [Y] or [N] Do they want a report. 
-    //After Input: Open Report [Y] or [N] (Python)
 }
 
 void run_cruise(){
     //Run on a typical rate between 2500 - 3000
     printf("\nSTARTING CRUISE TEST...\n");
 
+    EngineData data;
+
+    printf("TIME   RPM   TEMP   OIL\n------------------------\n");
+
     for(int i = 0; i < 10; i++){
-        printf("%d\n", random_RPM(2500,3000));
+        data.rpm = random_Data(2500,3500);
+        data.temp = random_Data(80, 105);
+        data.oil = random_Data(30, 40);
+
+        print_data(i, &data);
     }
 }
 
@@ -31,12 +48,21 @@ void run_stress(){
     int previous_RPM = 2700;
 
     for(int i = 0; i < 10; i++){
-        int temp_RPM = random_RPM(previous_RPM, 5500);
+        int temp_RPM = random_Data(previous_RPM, 5500);
         printf("%d\n", temp_RPM);
         previous_RPM = temp_RPM;
     }
 }
 
-int random_RPM(int min, int max){
+
+static int random_Data(int min, int max){
     return min + rand() % (max + 1 - min);
+}
+
+static void print_data(int time, EngineData *data){
+    printf("%d   %d   %f   %f\n", time, data->rpm, data->temp, data->oil);
+}
+
+static void log_data(){
+
 }
