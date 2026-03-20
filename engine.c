@@ -45,12 +45,24 @@ void run_cruise(){
 
 void run_stress(){
     //Get highly random values - Use previous value and add more to it (Ascending RPM)
+    printf("\nSTARTING CRUISE TEST...\n");
+
+    EngineData data;
+
+    printf("TIME   RPM   TEMP   OIL\n------------------------\n");
     int previous_RPM = 2700;
+    int previous_Temp = 85;
 
     for(int i = 0; i < 10; i++){
         int temp_RPM = random_Data(previous_RPM, 5500);
-        printf("%d\n", temp_RPM);
+        int temp_Temp = random_Data(previous_Temp, 110);
         previous_RPM = temp_RPM;
+        previous_Temp = temp_Temp;
+        data.rpm = temp_RPM;
+        data.temp = temp_Temp;
+        data.oil = random_Data(30,40);
+
+        print_data(i, &data);
     }
 }
 
