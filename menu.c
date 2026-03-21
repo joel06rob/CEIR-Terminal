@@ -2,6 +2,7 @@
 #include <string.h>
 #include "menu.h"
 #include "engine.h"
+#include "cars.h"
 
 void sayHelloTest();
 void exit_program();
@@ -12,6 +13,7 @@ static Command commands[] = {
     {"idle", run_idle},
     {"cruise", run_cruise},
     {"stress", run_stress},
+    {"addcar", add_car},
     {"help", help_commands},
     {"exit", exit_program}
 }; 
