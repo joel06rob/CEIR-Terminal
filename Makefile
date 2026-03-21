@@ -5,4 +5,4 @@ run: program
 	./program
 
 clean:
-	rm -f program
+	rm -f program *_log.csv
