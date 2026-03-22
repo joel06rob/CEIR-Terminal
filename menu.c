@@ -4,11 +4,13 @@
 #include "menu.h"
 #include "engine.h"
 #include "cars.h"
+#include "warnings.h"
 
 void sayHelloTest();
 void exit_program();
 void help_commands();
 void test_python();
+void test_warnings();
 
 //Setup commands
 static Command commands[] = {
@@ -17,6 +19,7 @@ static Command commands[] = {
     {"stress", run_stress},
     {"addcar", add_car},
     {"test", test_python},
+    {"warnings", test_warnings},
     {"help", help_commands},
     {"exit", exit_program}
 }; 
@@ -72,4 +75,9 @@ void test_python(){
     if(result != 0){
         printf("failed to run python script");
     }
+}
+
+void test_warnings(){
+    add_warning("Temperature overheating", 102.0);
+    view_warnings();
 }
