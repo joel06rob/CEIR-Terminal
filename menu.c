@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "menu.h"
 #include "engine.h"
@@ -7,6 +8,7 @@
 void sayHelloTest();
 void exit_program();
 void help_commands();
+void test_python();
 
 //Setup commands
 static Command commands[] = {
@@ -14,6 +16,7 @@ static Command commands[] = {
     {"cruise", run_cruise},
     {"stress", run_stress},
     {"addcar", add_car},
+    {"test", test_python},
     {"help", help_commands},
     {"exit", exit_program}
 }; 
@@ -61,4 +64,12 @@ void help_commands(){
         printf("\n%s", commands[i].command);
     }
 
+}
+
+void test_python(){
+    int result = system("python3 plot.py");
+
+    if(result != 0){
+        printf("failed to run python script");
+    }
 }
