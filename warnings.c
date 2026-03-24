@@ -8,6 +8,8 @@ Warnings *warnings = NULL;
 int WARNING_COUNT = 0;
 int WARNING_CAP = 2;
 
+
+//Could change to bool and exit the program in main if returns 1
 void init_warnings(){
     warnings = malloc(sizeof(Warnings) * WARNING_CAP);
     if(warnings == NULL){

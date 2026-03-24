@@ -3,6 +3,7 @@
 #include <time.h>
 #include "engine.h"
 #include "logging.h"
+#include "warnings.h"
 
 static int random_Data(int min, int max);
 static void print_data(int time, EngineData *data);
@@ -91,6 +92,11 @@ void run_stress(){
 
         print_data(i, &data);
         log_data(file, i, &data);
+
+        //Warnings
+        if(data.temp > 105){
+            add_warning("*WARNING* Temperature Overheating", data.temp);
+        }
     }
 
     fclose(file);
