@@ -42,9 +42,13 @@ void add_warning(char *warningmsg, float warningvalue){
 
 void view_warnings(){
     for(int i = 0; i < WARNING_COUNT; i++){
-        printf("%ld\n", warnings[i].timestamp);
-        printf("%s\n", warnings[i].type);
-        printf("%.2f\n", warnings[i].value);
+
+        //Format the Epoch time using the tm struct from time.h
+        struct tm *t = localtime(&warnings[i].timestamp);
+        char buffer[32];
+        strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", t);
+
+        printf("[%s] %s %.2f\n", buffer, warnings[i].type, warnings[i].value);
     }
 }
 
