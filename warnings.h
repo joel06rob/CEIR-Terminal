@@ -11,6 +11,7 @@ typedef struct {
 
 void add_warning(char *warningmsg, float value);
 void view_warnings();
+void check_warnings();
 void init_warnings();
 void free_warnings();
 

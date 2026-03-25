@@ -100,7 +100,7 @@ void run_stress(){
     }
 
     fclose(file);
-
+    check_warnings();
 }
 
 

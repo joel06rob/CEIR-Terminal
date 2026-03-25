@@ -52,6 +52,12 @@ void view_warnings(){
     }
 }
 
+void check_warnings(){
+    if(WARNING_COUNT > 0){
+        view_warnings();
+    }
+}
+
 void free_warnings(){
     free(warnings);
 }
