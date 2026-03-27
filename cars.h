@@ -8,5 +8,6 @@ typedef struct {
 } Cars;
 
 void add_car();
+void view_cars();
 
 #endif

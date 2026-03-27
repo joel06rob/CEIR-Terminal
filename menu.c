@@ -17,6 +17,7 @@ static Command commands[] = {
     {"cruise", run_cruise},
     {"stress", run_stress},
     {"addcar", add_car},
+    {"viewcar", view_cars},
     {"test", test_python},
     {"warnings", view_warnings},
     {"help", help_commands},
